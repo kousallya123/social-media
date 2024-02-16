@@ -6,7 +6,7 @@ import Profile from '../assets/profile.jfif'
 import { useNavigate } from 'react-router-dom';
 
 function Navbar() {
-  const user=JSON.parse(localStorage.getItem('user'))
+  const user=JSON?.parse(localStorage?.getItem('user'))
   const PF=process.env.REACT_APP_PUBLIC_FOLDER
 const navigate=useNavigate()
   const handleLogout = () => {

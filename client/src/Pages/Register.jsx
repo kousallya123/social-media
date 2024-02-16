@@ -32,7 +32,7 @@ const [image,setImage]=useState('')
             formData.append('newPost', JSON.stringify(newPost));
         
             try {
-              const response = await axios.post('http://localhost:5000/register', formData, {
+              const response = await axios.post(`${process.env.REACT_APP_URL}register`, formData, {
                 headers: {
                   'Content-Type': 'multipart/form-data',
                 },

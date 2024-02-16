@@ -35,7 +35,7 @@ function Post({ post, setPosts }) {
     useEffect(()=>{
         const fetchData = async () => {
             try {
-              const response = await axios.get(`http://localhost:5000/post/getcomment/${post._id}`)
+              const response = await axios.get(`${process.env.REACT_APP_URL}post/getcomment/${post._id}`)
               console.log(response.data);
               setComments(response.data)
             } catch (error) {
@@ -186,7 +186,7 @@ const CommentComponent=({post,user,PF,comments,setComments})=>{
             if(comment===''){
                 alert('comment is empty')
             }else{
-                const response= await axios.post(`http://localhost:5000/post/addcomment/${post._id}`,
+                const response= await axios.post(`${process.env.REACT_APP_URL}post/addcomment/${post._id}`,
                 {userId:user._id,comment:comment,postId:post._id})
                 console.log(response.data.succes,'aaaaaaaaaaaaaaaaaaaaaaaaaaa');
             
@@ -288,7 +288,7 @@ const LikeAndComment = (props) => {
     const isUserLiked = post?.likes?.some(item => item._id === user._id);
     const handleLike = async () => {
         try {
-            const response = await axios.put(`http://localhost:5000/post/like/${post._id} `, { userId: user._id })
+            const response = await axios.put(`${process.env.REACT_APP_URL}post/like/${post._id} `, { userId: user._id })
             if (response.data.data === 'liked') {
                 const updatedLikes = { _id: user._id, email: user.email, profileImage: user.profileImage, username: user.username };
                 console.log(updatedLikes)

@@ -17,7 +17,7 @@ function Login() {
     const handleLogin =async (values, { setSubmitting }) => {
         const {email,password}=values
         try {
-            const response = await axios.post('http://localhost:5000/login', {
+            const response = await axios.post(`${process.env.REACT_APP_URL}login`, {
                 email:email,
                 password:password
             }, {

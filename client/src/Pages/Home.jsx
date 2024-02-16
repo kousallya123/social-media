@@ -9,17 +9,18 @@ import axios from 'axios'
 function Home() {
   const user=localStorage.getItem('user')
   const navigate=useNavigate()
-  useEffect(()=>{
-if(!user){
-  navigate('/login')
-}
-  },[])
+  useEffect(() => {
+    if (!user || user === undefined) {
+      navigate('/login');
+    }
+  }, []);
+  
 const [posts,setPosts]=useState(null)
 const [x,setX]=useState(false)
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/post')
+        const response = await axios.get(`${process.env.REACT_APP_URL}post`)
         console.log(response.data);
         setPosts(response.data)
       } catch (error) {
