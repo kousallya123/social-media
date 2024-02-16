@@ -43,7 +43,7 @@ function Post({ post, setPosts }) {
             }
           };
           fetchData();
-    },[])
+    },[post])
     return (
         <>
             <Box
