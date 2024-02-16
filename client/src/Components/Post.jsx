@@ -84,6 +84,9 @@ function Post({ post, setPosts }) {
                                         ml={`${idx * -0.5}rem`}
                                     />
                                 ))}
+                                   {liked?.map((detail, idx) => (
+                                    <Text textAlign="center"display="flex" alignSelf="center" fontSize="0.6rem" fontFamily="poppins" ml="0.3rem">{detail?.username} </Text>
+                                ))}
                             </Flex>
                         ) : (
                             <Flex position={"relative"} mr="0.4rem">
@@ -133,6 +136,11 @@ function Post({ post, setPosts }) {
                                         +{liked?.length - 2}
                                     </Text>
                                 </Box>
+                                {liked ?.slice(0, 2)?.map((detail, idx) => (
+                                    <Text textAlign="center"display="flex" alignSelf="center" fontSize="0.6rem" fontFamily="poppins" ml="0.3rem">{detail?.username} </Text>
+                                ))} 
+                                                                    <Text textAlign="center"display="flex" alignSelf="center" fontSize="0.6rem" fontFamily="poppins" ml="0.3rem">and others </Text>
+
                             </Flex>
                         )}
                     </Text>
